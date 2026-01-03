@@ -1,19 +1,7 @@
-"use client";
-
-import { useState } from "react";
-
-const images = [
-  // add ALL filenames from /public/ART here
-  "22014754.png",
-  "1005275.png",
-  "1037807.png",
-  "1042053.png",
-  "1214638.png",
-  "1225804.jpg",
-];
+import { getArtFiles } from "@/lib/getArt";
 
 export default function Archive() {
-  const [open, setOpen] = useState(null);
+  const images = getArtFiles();
 
   return (
     <main
@@ -31,43 +19,17 @@ export default function Archive() {
         }}
       >
         {images.map((img) => (
-          <img
-            key={img}
-            src={`/ART/${img}`}
-            onClick={() => setOpen(img)}
-            style={{
-              width: "100%",
-              height: "auto",
-              cursor: "pointer",
-              borderRadius: "6px",
-              transition: "transform 0.2s ease",
-            }}
-          />
+          <a key={img} href={`/ART/${img}`} target="_blank">
+            <img
+              src={`/ART/${img}`}
+              style={{
+                width: "100%",
+                borderRadius: "6px",
+              }}
+            />
+          </a>
         ))}
       </div>
-
-      {open && (
-        <div
-          onClick={() => setOpen(null)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0,0,0,0.9)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 50,
-          }}
-        >
-          <img
-            src={`/ART/${open}`}
-            style={{
-              maxWidth: "92vw",
-              maxHeight: "92vh",
-            }}
-          />
-        </div>
-      )}
     </main>
   );
 }
