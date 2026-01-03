@@ -1,13 +1,15 @@
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        style={{
-          margin: 0,
-          background: "black",
-          color: "#d6c08d",
-          fontFamily: "serif",
-        }}
+      <body>
+  style={{
+    margin: 0,
+    background: "radial-gradient(ellipse at top, #0a0a0a 0%, #000 60%)",
+    color: "#d8c48f",
+    fontFamily: "serif",
+  }}
+>
+        }
       >
         <nav
           style={{
