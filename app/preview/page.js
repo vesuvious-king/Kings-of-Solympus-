@@ -9,43 +9,66 @@ const images = [
   "1042053.png",
   "1214638.png",
   "1225804.jpg",
-  // add ALL filenames here
+  // ALL filenames here
 ];
 
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
 export default function Preview() {
-  const [current, setCurrent] = useState(null);
-  const [show, setShow] = useState(true);
+  const [deck, setDeck] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShow(false); // black screen
+    setDeck(shuffle(images));
+  }, []);
+
+  useEffect(() => {
+    if (!deck.length) return;
+
+    const cycle = setInterval(() => {
+      setVisible(false); // black void
 
       setTimeout(() => {
-        const random =
-          images[Math.floor(Math.random() * images.length)];
-        setCurrent(random);
-        setShow(true);
-      }, 500); // black duration
-    }, 1500); // total cycle time
+        setIndex((i) => {
+          if (i + 1 >= deck.length) {
+            setDeck(shuffle(images));
+            return 0;
+          }
+          return i + 1;
+        });
+        setVisible(true);
+      }, 600); // black pause
+    }, 1800); // total rhythm
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(cycle);
+  }, [deck]);
 
   return (
     <main
       style={{
         background: "black",
         height: "100vh",
+        width: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
       }}
     >
-      {show && current && (
+      {visible && deck[index] && (
         <img
-          src={`/ART/${current}`}
-          alt="NFT"
-          style={{ maxHeight: "90vh", maxWidth: "90vw" }}
+          src={`/ART/${deck[index]}`}
+          alt=""
+          style={{
+            maxHeight: "88vh",
+            maxWidth: "88vw",
+            opacity: visible ? 1 : 0,
+            transform: "scale(1.03)",
+            transition: "opacity 0.8s ease, transform 6s ease",
+          }}
         />
       )}
     </main>
