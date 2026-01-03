@@ -1,11 +1,9 @@
 export default function Home() {
   return (
-    <main style={{ padding: "40px", fontFamily: "serif" }}>
-      <h1>🔥 IT WORKS 🔥</h1>
+    <main style={{ padding: 40 }}>
+      <h1>Kings of Solympus</h1>
 
-      <p>If you see this text, GitHub → Vercel is working.</p>
-
-      <p>Timestamp: {new Date().toLocaleString()}</p>
-    </main>
-  );
-}
+      <img
+        src="/Screenshot_20260101_144630_Gallery.jpg"
+        alt="King"
+        style={{ maxWidth: "100
