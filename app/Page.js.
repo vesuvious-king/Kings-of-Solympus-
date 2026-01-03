@@ -1,0 +1,13 @@
+export default function Home() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "serif" }}>
+      <h1>Kings of Solympus</h1>
+      <p>
+        Welcome to the official site of Kings of Solympus.
+      </p>
+      <p>
+        The age of gods, kings, and legends begins here.
+      </p>
+    </main>
+  );
+}
