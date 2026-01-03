@@ -5,5 +5,9 @@ export default function Home() {
 
       <img
         src="/Screenshot_20260101_144630_Gallery.jpg"
-        alt="King"
-        style={{ maxWidth: "100
+        alt="Kings of Solympus Art"
+        style={{ maxWidth: "100%", marginTop: 20 }}
+      />
+    </main>
+  );
+}
