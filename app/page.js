@@ -4,7 +4,7 @@ export default function Home() {
       <h1>Kings of Solympus</h1>
 
       <img
-        src="/ART/REPLACE_WITH_ONE_FILENAME.png"
+        src="/ART/22014754.png"
         alt="Art"
         style={{ width: "300px", marginTop: "20px" }}
       />
