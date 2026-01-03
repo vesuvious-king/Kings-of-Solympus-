@@ -1,15 +1,13 @@
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-  style={{
-    margin: 0,
-    background: "radial-gradient(ellipse at top, #0a0a0a 0%, #000 60%)",
-    color: "#d8c48f",
-    fontFamily: "serif",
-  }}
->
-        }
+      <body
+        style={{
+          margin: 0,
+          background: "radial-gradient(ellipse at top, #0a0a0a, #000)",
+          color: "#d8c48f",
+          fontFamily: "serif",
+        }}
       >
         <nav
           style={{
@@ -25,37 +23,18 @@ export default function RootLayout({ children }) {
             zIndex: 100,
           }}
         >
-          <a
-            href="/"
-            style={{
-              color: "#d6c08d",
-              textDecoration: "none",
-              letterSpacing: "0.12em",
-              fontSize: "14px",
-            }}
-          >
-            KINGS OF SOLYMPUS
+          <a href="/" style={{ color: "#d6c08d", textDecoration: "none" }}>
+            Home
           </a>
-
-          <div style={{ display: "flex", gap: "20px" }}>
-            <a href="/preview" style={linkStyle}>
-              PREVIEW
-            </a>
-            <a href="/archive" style={linkStyle}>
-              ARCHIVE
-            </a>
-          </div>
+          <a href="/preview" style={{ color: "#d6c08d", textDecoration: "none" }}>
+            Preview
+          </a>
         </nav>
 
-        <div style={{ paddingTop: "80px" }}>{children}</div>
+        <div style={{ paddingTop: "80px" }}>
+          {children}
+        </div>
       </body>
     </html>
   );
 }
-
-const linkStyle = {
-  color: "#9f9a7a",
-  textDecoration: "none",
-  fontSize: "12px",
-  letterSpacing: "0.12em",
-};
