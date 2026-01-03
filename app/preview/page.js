@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const images = [
   "22014754.png",
   "1005275.png",
   "1037807.png",
   "1042053.png",
-  "1214638.png",
-  "1225804.jpg",
-  // ALL filenames here
+  // keep adding filenames
 ];
 
 function shuffle(array) {
@@ -17,19 +15,21 @@ function shuffle(array) {
 }
 
 export default function Preview() {
+  const containerRef = useRef(null);
   const [deck, setDeck] = useState([]);
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     setDeck(shuffle(images));
   }, []);
 
   useEffect(() => {
-    if (!deck.length) return;
+    if (!started || !deck.length) return;
 
     const cycle = setInterval(() => {
-      setVisible(false); // black void
+      setVisible(false);
 
       setTimeout(() => {
         setIndex((i) => {
@@ -40,14 +40,24 @@ export default function Preview() {
           return i + 1;
         });
         setVisible(true);
-      }, 600); // black pause
-    }, 1800); // total rhythm
+      }, 600);
+    }, 1800);
 
     return () => clearInterval(cycle);
-  }, [deck]);
+  }, [deck, started]);
+
+  const enterFullscreen = () => {
+    if (containerRef.current?.requestFullscreen) {
+      containerRef.current.requestFullscreen();
+    }
+    setStarted(true);
+    setVisible(true);
+  };
 
   return (
     <main
+      ref={containerRef}
+      onClick={enterFullscreen}
       style={{
         background: "black",
         height: "100vh",
@@ -56,15 +66,22 @@ export default function Preview() {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        cursor: "pointer",
       }}
     >
-      {visible && deck[index] && (
+      {!started && (
+        <div style={{ color: "#666", fontSize: "14px" }}>
+          TAP TO ENTER
+        </div>
+      )}
+
+      {started && visible && deck[index] && (
         <img
           src={`/ART/${deck[index]}`}
           alt=""
           style={{
-            maxHeight: "88vh",
-            maxWidth: "88vw",
+            maxHeight: "92vh",
+            maxWidth: "92vw",
             opacity: visible ? 1 : 0,
             transform: "scale(1.03)",
             transition: "opacity 0.8s ease, transform 6s ease",
