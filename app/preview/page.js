@@ -1,93 +1,70 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const images = [
-  "22014754.png",
-  "1005275.png",
-  "1037807.png",
-  "1042053.png",
-  // keep adding filenames
+const ART_FILES = [
+  "/ART/1005275.png",
+  "/ART/1037807.png",
+  "/ART/1042053.png",
+  "/ART/1214638.png",
+  "/ART/1225804.jpg",
+  "/ART/123611.png",
+  "/ART/132239.png",
+  "/ART/134058.png",
+  "/ART/140716.png",
+  "/ART/146958.png",
+  "/ART/1531844.png",
+  "/ART/1644525.png",
+  "/ART/1713917.png"
+  // 👉 KEEP ADDING FILES HERE AS YOU UPLOAD MORE
 ];
 
-function shuffle(array) {
-  return [...array].sort(() => Math.random() - 0.5);
-}
-
-export default function Preview() {
-  const containerRef = useRef(null);
-  const [deck, setDeck] = useState([]);
+export default function PreviewPage() {
   const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [started, setStarted] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
-    setDeck(shuffle(images));
-  }, []);
+    const shuffled = [...ART_FILES].sort(() => Math.random() - 0.5);
 
-  useEffect(() => {
-    if (!started || !deck.length) return;
+    let i = 0;
 
-    const cycle = setInterval(() => {
-      setVisible(false);
+    const interval = setInterval(() => {
+      setShow(false);
 
       setTimeout(() => {
-        setIndex((i) => {
-          if (i + 1 >= deck.length) {
-            setDeck(shuffle(images));
-            return 0;
-          }
-          return i + 1;
-        });
-        setVisible(true);
-      }, 600);
-    }, 1800);
+        i = (i + 1) % shuffled.length;
+        setIndex(i);
+        setShow(true);
+      }, 300); // black frame duration
+    }, 1300); // 1 sec art + black
 
-    return () => clearInterval(cycle);
-  }, [deck, started]);
-
-  const enterFullscreen = () => {
-    if (containerRef.current?.requestFullscreen) {
-      containerRef.current.requestFullscreen();
-    }
-    setStarted(true);
-    setVisible(true);
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <main
-      ref={containerRef}
-      onClick={enterFullscreen}
+    <div
       style={{
-        background: "black",
-        height: "100vh",
+        backgroundColor: "black",
         width: "100vw",
+        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        overflow: "hidden",
-        cursor: "pointer",
+        overflow: "hidden"
       }}
     >
-      {!started && (
-        <div style={{ color: "#666", fontSize: "14px" }}>
-          TAP TO ENTER
-        </div>
-      )}
-
-      {started && visible && deck[index] && (
+      {show && (
         <img
-          src={`/ART/${deck[index]}`}
-          alt=""
+          src={ART_FILES[index]}
+          alt="NFT Preview"
           style={{
-            maxHeight: "92vh",
-            maxWidth: "92vw",
-            opacity: visible ? 1 : 0,
-            transform: "scale(1.03)",
-            transition: "opacity 0.8s ease, transform 6s ease",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "contain",
+            transition: "opacity 0.2s ease-in-out"
           }}
         />
       )}
-    </main>
+    </div>
   );
 }
