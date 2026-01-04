@@ -1,26 +1,16 @@
-export default function LegalPage() {
+export default function Legal() {
   return (
-    <main style={{ padding: "40px", maxWidth: "900px" }}>
+    <main style={{ padding: "40px", fontFamily: "inherit" }}>
       <h1>Legal</h1>
 
       <p>
-        This project is a work of art and storytelling. All content, artwork,
-        characters, and lore are original creations unless otherwise stated.
+        Kings of Solympus is a creative world of fiction, art, and myth.
+        All characters, creatures, and events are works of imagination.
       </p>
 
       <p>
-        NFTs associated with this project are collectible digital artworks.
-        Ownership of an NFT does not grant ownership of copyrights, trademarks,
-        or intellectual property unless explicitly stated.
-      </p>
-
-      <p>
-        This project is not financial advice. Participation is voluntary and
-        collectors assume all risk.
-      </p>
-
-      <p>
-        More detailed legal disclosures will be added as the project evolves.
+        Artwork, text, and concepts are protected and may not be reproduced
+        without permission.
       </p>
     </main>
   );
