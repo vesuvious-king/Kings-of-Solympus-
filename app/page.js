@@ -3,22 +3,24 @@ export default function Home() {
     <main
       style={{
         minHeight: "100vh",
-        background: "black",
+        backgroundColor: "black",
         color: "#f5d77a",
         fontFamily: "'Comic Neue', cursive",
         textAlign: "center",
-        padding: "60px",
-        textShadow: "2px 2px 6px rgba(0,0,0,0.8)"
+        paddingTop: "30vh",
+        textShadow: "3px 3px 0px #000"
       }}
     >
-      <h1 style={{ fontSize: "64px", marginBottom: "20px" }}>
-        Kings of Solympus
+      <h1 style={{ fontSize: "72px", marginBottom: "24px" }}>
+        KINGS OF SOLYMPUS
       </h1>
 
-      <p style={{ fontSize: "22px", maxWidth: "800px", margin: "0 auto" }}>
-        A mythic realm of power, legacy, and creation.
+      <p style={{ fontSize: "24px", maxWidth: "720px", margin: "0 auto" }}>
+        A mythic archive of goblins and skellies.
         <br />
-        Ten thousand unique Kings will rise.
+        Born unfinished. Reforged by hand.
+        <br />
+        Gold is fashion. Crowns are boredom.
       </p>
     </main>
   );
