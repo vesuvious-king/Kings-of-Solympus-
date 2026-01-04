@@ -4,67 +4,22 @@ export default function Home() {
       style={{
         minHeight: "100vh",
         background: "black",
-        color: "#d6c08d",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "32px",
+        color: "#f5d77a",
+        fontFamily: "'Comic Neue', cursive",
         textAlign: "center",
-        fontFamily: "serif",
+        padding: "60px",
+        textShadow: "2px 2px 6px rgba(0,0,0,0.8)"
       }}
     >
-      <h1
-        style={{
-          fontSize: "clamp(2.5rem, 6vw, 4rem)",
-          letterSpacing: "0.08em",
-          marginBottom: "16px",
-        }}
-      >
-        KINGS OF SOLYMPUS
+      <h1 style={{ fontSize: "64px", marginBottom: "20px" }}>
+        Kings of Solympus
       </h1>
 
-      <p
-        style={{
-          maxWidth: "520px",
-          fontSize: "16px",
-          lineHeight: "1.6",
-          color: "#9f9a7a",
-          marginBottom: "40px",
-        }}
-      >
-        A 1/1 generational archive of goblins and skellies.
-        Born unfinished. Reforged by hand.  
-        Gold is fashion. Crowns are boredom.
+      <p style={{ fontSize: "22px", maxWidth: "800px", margin: "0 auto" }}>
+        A mythic realm of power, legacy, and creation.
+        <br />
+        Ten thousand unique Kings will rise.
       </p>
-
-      <div style={{ display: "flex", gap: "24px" }}>
-        <a
-          href="/preview"
-          style={{
-            color: "#d6c08d",
-            textDecoration: "none",
-            borderBottom: "1px solid #d6c08d",
-            paddingBottom: "4px",
-            letterSpacing: "0.08em",
-          }}
-        >
-          ENTER THE VAULT
-        </a>
-
-        <a
-          href="/archive"
-          style={{
-            color: "#9f9a7a",
-            textDecoration: "none",
-            borderBottom: "1px solid #9f9a7a",
-            paddingBottom: "4px",
-            letterSpacing: "0.08em",
-          }}
-        >
-          VIEW ARCHIVE
-        </a>
-      </div>
     </main>
   );
 }
