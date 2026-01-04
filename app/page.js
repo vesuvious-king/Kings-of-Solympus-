@@ -2,26 +2,32 @@ export default function Home() {
   return (
     <main
       style={{
+        marginTop: "0",
+        paddingTop: "20px",
         minHeight: "100vh",
         backgroundColor: "black",
-        color: "#f5d77a",
-        fontFamily: "'Comic Neue', cursive",
+        color: "#d6b25e",
+        fontFamily: "cursive",
         textAlign: "center",
-        paddingTop: "30vh",
-        textShadow: "3px 3px 0px #000"
       }}
     >
-      <h1 style={{ fontSize: "72px", marginBottom: "24px" }}>
+      <h1
+        style={{
+          fontSize: "3.5rem",
+          marginBottom: "1rem",
+        }}
+      >
         KINGS OF SOLYMPUS
       </h1>
 
-      <p style={{ fontSize: "24px", maxWidth: "720px", margin: "0 auto" }}>
-        A mythic archive of goblins and skellies.
-        <br />
-        Born unfinished. Reforged by hand.
-        <br />
-        Gold is fashion. Crowns are boredom.
-      </p>
-    </main>
-  );
-}
+      <p
+        style={{
+          maxWidth: "700px",
+          margin: "0 auto",
+          lineHeight: "1.6",
+          fontSize: "1.1rem",
+        }}
+      >
+        From a forgotten age comes a land full of mystery and chaos. A story of an
+        ancient land and characters and creatures forged in the wastelands.
+        Bloody and mythical. A medieval horror tale
