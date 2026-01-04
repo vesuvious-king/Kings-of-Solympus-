@@ -1,39 +1,43 @@
+export const metadata = {
+  title: "Kings of Olympus",
+  description: "A medieval horror mythos",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        style={{
-          margin: 0,
-          background: "radial-gradient(ellipse at top, #0a0a0a, #000)",
-          color: "#d8c48f",
-          fontFamily: "serif",
-        }}
-      >
+      <body style={{ margin: 0, padding: 0, backgroundColor: "black", color: "#d4b46a" }}>
+
+        {/* LEFT NAVIGATION */}
         <nav
           style={{
             position: "fixed",
-            top: 0,
-            width: "100%",
-            padding: "16px 24px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            background: "rgba(0,0,0,0.85)",
-            backdropFilter: "blur(6px)",
-            zIndex: 100,
+            top: "20px",
+            left: "20px",
+            fontFamily: "inherit",
+            zIndex: 1000,
           }}
         >
-          <a href="/" style={{ color: "#d6c08d", textDecoration: "none" }}>
-            Home
-          </a>
-          <a href="/preview" style={{ color: "#d6c08d", textDecoration: "none" }}>
-            Preview
-          </a>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: "1.8em" }}>
+            <li><a href="/" style={{ color: "#d4b46a", textDecoration: "none" }}>Home</a></li>
+            <li><a href="/book" style={{ color: "#d4b46a", textDecoration: "none" }}>The Book</a></li>
+            <li><a href="/nft" style={{ color: "#d4b46a", textDecoration: "none" }}>The NFT</a></li>
+            <li><a href="/art-archive" style={{ color: "#d4b46a", textDecoration: "none" }}>Art Archive</a></li>
+            <li><a href="/community" style={{ color: "#d4b46a", textDecoration: "none" }}>Join Our Community</a></li>
+            <li><a href="/promotion" style={{ color: "#d4b46a", textDecoration: "none" }}>Art Promotion Area</a></li>
+            <li><a href="/merch" style={{ color: "#d4b46a", textDecoration: "none" }}>Merchandise</a></li>
+            <li><a href="/magic-eden" style={{ color: "#d4b46a", textDecoration: "none" }}>Magic Eden</a></li>
+            <li><a href="/roadmap" style={{ color: "#d4b46a", textDecoration: "none" }}>Roadmap</a></li>
+            <li><a href="/donations" style={{ color: "#d4b46a", textDecoration: "none" }}>Donations</a></li>
+            <li><a href="/about" style={{ color: "#d4b46a", textDecoration: "none" }}>About / Contact</a></li>
+          </ul>
         </nav>
 
-        <div style={{ paddingTop: "80px" }}>
+        {/* PAGE CONTENT */}
+        <main style={{ paddingTop: "80px" }}>
           {children}
-        </div>
+        </main>
+
       </body>
     </html>
   );
